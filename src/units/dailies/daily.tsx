@@ -1,6 +1,10 @@
 import { IDaily } from "./use-dailies";
 
-const Daily = ({ id, name, checked, updateDaily }: IDaily) => {
+interface Daily extends IDaily {
+  updateDaily: any;
+}
+
+const Daily = ({ id, name, checked, updateDaily }: Daily) => {
   const stringId = `${id}`;
 
   return (

@@ -4,7 +4,6 @@ export interface IDaily {
   id: number;
   name: string;
   checked: boolean;
-  updateDaily?: any;
 }
 
 interface IDailies extends Array<IDaily> {}
