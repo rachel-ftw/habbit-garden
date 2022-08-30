@@ -4,15 +4,16 @@ export interface IDaily {
   id: number;
   name: string;
   checked: boolean;
-  onClick?: any;
+  updateDaily?: any;
 }
 
 interface IDailies extends Array<IDaily> {}
 
 interface IReturn {
   dailies: IDailies;
-  addDaily: React.MouseEventHandler<HTMLButtonElement>;
-  toggleDaily: any; //update to curried function
+  addDaily: any;
+  updateDaily: any; //update to curried function
+  error: string;
 }
 
 const defaultDailies = [
@@ -22,23 +23,33 @@ const defaultDailies = [
 
 const useDailies = (): IReturn => {
   const [dailies, setDailies] = useState<IDailies>(defaultDailies);
+  const [error, setError] = useState<string>("");
 
-  const toggleDaily =
-    (index: number) => (event: React.MouseEventHandler<HTMLButtonElement>) => {
-      const newDailies = [...dailies];
-      newDailies[index].checked = !dailies[index].checked;
-      setDailies(newDailies);
-    };
+  const generateNewId = () => dailies[dailies.length - 1].id + 1;
+  const generateDaily = (e) => ({
+    id: generateNewId(),
+    name: e.target[0].value,
+    checked: false,
+  });
 
-  const addDaily = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    // const button: HTMLButtonElement = event.currentTarget;
-    console.log("adding daily");
+  const updateDaily = (index: number) => () => {
+    const newDailies = [...dailies];
+    newDailies[index].checked = !dailies[index].checked;
+    setDailies(newDailies);
   };
 
-  return { dailies, addDaily, toggleDaily };
+  const addDaily = (event: any) => {
+    event.preventDefault();
+    if (event.target[0].value === "") {
+      setError("please enter a todo title.");
+      return;
+    }
+
+    setError("");
+    setDailies([...dailies, generateDaily(event)]);
+  };
+
+  return { dailies, addDaily, updateDaily, error };
 };
 
 export default useDailies;
