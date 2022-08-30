@@ -23,19 +23,22 @@ const Dailies = () => {
   };
 
   return (
-    <div css={rootStyles.dailies}>
-      <div>
-        Dailies <button onClick={toggleForm}>add</button>
+    <div css={[rootStyles.dailies, styles.container]}>
+      <div css={styles.addContainer}>
+        <h3 css={styles.addTitle}>Dailies</h3>
+        <button css={styles.addButton} onClick={toggleForm}>
+          add
+        </button>
         {showForm && (
-          <form onSubmit={add}>
+          <form css={styles.addForm} onSubmit={add}>
             <p>new daily</p>
             <label htmlFor={"title"}>title</label>:
             <input type="input" id={"title"} />
             <button type="submit">add</button>{" "}
             <button onClick={clearForm}>cancel</button>
+            {error.length > 0 && <p>{error}</p>}
           </form>
         )}
-        {error.length > 0 && <p>{error}</p>}
       </div>
       <div css={styles.listLayout}>
         {dailies.map((dailyInfo: IDaily, i) => (

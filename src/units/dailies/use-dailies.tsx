@@ -25,9 +25,8 @@ const useDailies = (): IReturn => {
   const [dailies, setDailies] = useState<IDailies>(defaultDailies);
   const [error, setError] = useState<string>("");
 
-  const generateNewId = () => dailies[dailies.length - 1].id + 1;
-  const generateDaily = (e) => ({
-    id: generateNewId(),
+  const generateDaily = (e: any) => ({
+    id: dailies[dailies.length - 1].id + 1,
     name: e.target[0].value,
     checked: false,
   });
