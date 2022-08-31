@@ -1,4 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import Button from "../components/button";
 
 const AuthButtons = () => {
   const { isLoading, error, user, loginWithRedirect, logout } = useAuth0();
@@ -7,9 +8,9 @@ const AuthButtons = () => {
   if (error) return <div>Oops... {error.message}</div>;
 
   if (!isLoading && user)
-    return <button onClick={logout}>save & log out</button>;
+    return <Button text="save & log out" onClick={logout} />;
   if (!isLoading && !user) {
-    return <button onClick={loginWithRedirect}>log in</button>;
+    return <Button text="log in" onClick={loginWithRedirect} />;
   }
   return null;
 };
