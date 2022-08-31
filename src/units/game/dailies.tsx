@@ -9,7 +9,11 @@ const Dailies = () => {
 
   return (
     <div css={styles.container}>
-      <AddDaily addDaily={update.add} error={error} />
+      <AddDaily
+        addDaily={update.add}
+        clearError={update.clearError}
+        error={error}
+      />
       <DailiesContainer dailies={dailies} update={update} />
     </div>
   );

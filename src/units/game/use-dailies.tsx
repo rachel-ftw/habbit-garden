@@ -13,7 +13,9 @@ interface updates {
   add: any;
   checked: any;
   order: any;
+  clearError: any;
 }
+
 interface IReturn {
   dailies: IDailies;
   update: updates;
@@ -54,6 +56,8 @@ const useDailies = (): IReturn => {
     setDailies(newDailies);
   };
 
+  const clearError = () => setError("");
+
   const add = (event: any) => {
     event.preventDefault();
     if (event.target[0].value === "") {
@@ -61,7 +65,7 @@ const useDailies = (): IReturn => {
       return;
     }
 
-    setError("");
+    clearError();
     setDailies([...dailies, generateDaily(event)]);
   };
 
@@ -76,6 +80,7 @@ const useDailies = (): IReturn => {
       add,
       checked: updateChecked,
       order: updateOrder,
+      clearError,
     },
     error,
   };

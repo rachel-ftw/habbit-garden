@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from "@emotion/react";
+import colors from "../colors";
 interface IErrorTextProps {
   msg?: string;
 }
@@ -11,7 +12,7 @@ const style = {
     height: 30px;
   `,
   msg: css`
-    color: red;
+    color: ${colors.richRose};
     size: 10px;
   `,
 };

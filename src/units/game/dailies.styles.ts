@@ -33,6 +33,10 @@ const styles = {
 
   addForm: css`
     grid-area: add-form;
+
+    button {
+      margin: 0 5px;
+    }
   `,
 };
 
