@@ -10,22 +10,27 @@ const style = css`
 `;
 
 const DailiesList = ({ dailies, updateChecked }: any) => {
-  return dailies.map((daily: IDaily, index: number) => {
-    return (
-      <Draggable key={daily.id} draggableId={daily.id} index={index}>
-        {(provided) => (
-          <div
-            css={style}
-            ref={provided.innerRef}
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-          >
-            {daily.name}
-          </div>
-        )}
-      </Draggable>
-    );
-  });
+  return dailies.map((daily: IDaily, index: number) => (
+    <Draggable key={daily.id} draggableId={daily.id} index={index}>
+      {(provided) => (
+        <div
+          css={style}
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          <input
+            id={daily.id}
+            type="checkbox"
+            name={daily.name}
+            checked={daily.checked}
+            onChange={updateChecked(index)}
+          />
+          <label htmlFor={daily.id}>{daily.name}</label>
+        </div>
+      )}
+    </Draggable>
+  ));
 };
 
 export default DailiesList;
