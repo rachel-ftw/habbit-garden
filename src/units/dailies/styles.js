@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 const styles = {
   container: css`
     padding: 10px;
+    grid-area: dailies;
   `,
   listLayout: css`
     display: flex;

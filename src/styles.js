@@ -9,20 +9,6 @@ const styles = {
       "nav     nav"
       "dailies garden";
   `,
-
-  nav: css`
-    grid-area: nav;
-  `,
-
-  garden: css`
-    grid-area: garden;
-    background-color: blue;
-    height: calc(100vh - 100px);
-  `,
-
-  dailies: css`
-    grid-area: dailies;
-  `,
 };
 
 export default styles;
