@@ -4,7 +4,7 @@ import Button from "../../components/button";
 import TextInput from "../../components/input.text";
 import styles from "./dailies.styles";
 
-const addButton = { gridArea: "add-button" };
+const addButton = { gridArea: "add-button", maxHeight: "45px" };
 
 const AddDaily = ({ addDaily, clearError, error }: any) => {
   const [showForm, setShowForm] = useState(false);

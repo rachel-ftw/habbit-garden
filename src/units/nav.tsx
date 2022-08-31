@@ -11,7 +11,11 @@ const Nav = () => {
     <div css={styles.container}>
       <Link to="/">Habit Garden</Link>
       <div>
-        {user && <Link to="/account">Account</Link>}
+        {user && (
+          <Link css={styles.link} to="/account">
+            Account
+          </Link>
+        )}
         <AuthenticateButton />
       </div>
     </div>

@@ -11,12 +11,12 @@ interface IButtonProps {
 }
 
 const global = css`
-  padding: 5px 10px;
+  padding: 10px 15px;
   background-color: ${colors.greenSage};
   color: ${colors.white};
-  border-radius: 2px;
+  border-radius: 3px;
   border: 0;
-  height: 30px;
+  font-size: 16px;
 
   &:hover {
     background-color: ${colors.greenSageDark};
