@@ -16,16 +16,11 @@ const DailiesList = ({ dailies, updateChecked }: any) => {
         <div
           css={style(checked)}
           ref={provided.innerRef}
+          onClick={updateChecked(index)}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <input
-            id={id}
-            type="checkbox"
-            name={name}
-            checked={checked}
-            onChange={updateChecked(index)}
-          />
+          <input id={id} type="checkbox" name={name} checked={checked} />
           <label htmlFor={id}>{name}</label>
         </div>
       )}

@@ -1,5 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
+import { css } from "@emotion/react";
+
 interface IButtonProps {
   type?: "button" | "submit" | "reset" | undefined;
   text: string;
@@ -7,8 +9,12 @@ interface IButtonProps {
   style?: any;
 }
 
+const global = css`
+  padding: 5px 10px;
+`;
+
 const Button = ({ type = "button", text, onClick, style }: IButtonProps) => (
-  <button css={style} type={type} onClick={onClick}>
+  <button css={[global, style]} type={type} onClick={onClick}>
     {text}
   </button>
 );

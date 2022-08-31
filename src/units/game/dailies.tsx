@@ -2,7 +2,7 @@
 import useDailies from "./use-dailies";
 import styles from "./dailies.styles";
 import AddDaily from "./dailies.add-daily";
-import DailiesList from "./dailies.container";
+import DailiesContainer from "./dailies.container";
 
 const Dailies = () => {
   const { dailies, update, error } = useDailies();
@@ -10,7 +10,7 @@ const Dailies = () => {
   return (
     <div css={styles.container}>
       <AddDaily addDaily={update.add} error={error} />
-      <DailiesList dailies={dailies} update={update} />
+      <DailiesContainer dailies={dailies} update={update} />
     </div>
   );
 };

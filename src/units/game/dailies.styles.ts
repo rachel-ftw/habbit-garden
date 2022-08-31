@@ -31,10 +31,6 @@ const styles = {
     grid-area: title;
   `,
 
-  addButton: css`
-    grid-area: add-button;
-  `,
-
   addForm: css`
     grid-area: add-form;
   `,
