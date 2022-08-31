@@ -20,6 +20,7 @@ const styles = {
     display: grid;
     grid-template-columns: 1fr 50px;
     grid-template-rows: 20px 100px 1f;
+    padding: 10px 0;
     grid-template-areas:
       "title      add-button"
       "add-form   add-form"
