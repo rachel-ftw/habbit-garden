@@ -51,7 +51,6 @@ const useDailies = (): IReturn => {
   const updateChecked = (index: number) => () => {
     const newDailies = [...dailies];
     newDailies[index].checked = !dailies[index].checked;
-    console.log(newDailies);
     setDailies(newDailies);
   };
 
@@ -68,7 +67,6 @@ const useDailies = (): IReturn => {
 
   const updateOrder = (sourceIndex: any, destinationIndex: any) => {
     const reordered = reorder(dailies, sourceIndex, destinationIndex);
-    console.log("movingDaily", { sourceIndex, destinationIndex, reordered });
     setDailies(reordered);
   };
 
