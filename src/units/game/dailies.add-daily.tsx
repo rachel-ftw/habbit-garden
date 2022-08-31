@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { useState } from "react";
-import styles from "./styles";
+import styles from "./dailies.styles";
 
 const AddDaily = ({ addDaily, error }: any) => {
   const [showForm, setShowForm] = useState(false);
