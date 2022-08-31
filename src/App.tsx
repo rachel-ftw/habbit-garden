@@ -1,28 +1,25 @@
 /** @jsxImportSource @emotion/react */
 import { Routes, Route } from "react-router-dom";
-import Dailies from "./units/dailies";
-import Garden from "./units/garden";
-import Nav from "./units/nav";
-import styles from "./styles";
 import Account from "./units/account";
+import Login from "./units/authentication";
+import Game from "./units/game";
+import Landing from "./units/landing";
+import Nav from "./units/nav";
+import Auth0ProviderWithNavigation from "./auth0-provider";
+import styles from "./styles";
 
-const Landing = () => (
-  <>
-    <Dailies />
-    <Garden />
-  </>
-);
-
-const App = () => {
-  return (
+const App = () => (
+  <Auth0ProviderWithNavigation>
     <div css={styles.layout}>
       <Nav />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="account" element={<Account />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/authentication" element={<Login />} />
+        <Route path="/game" element={<Game />} />
       </Routes>
     </div>
-  );
-};
+  </Auth0ProviderWithNavigation>
+);
 
 export default App;
