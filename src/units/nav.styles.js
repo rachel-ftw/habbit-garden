@@ -7,6 +7,11 @@ const styles = {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+
+    > a {
+      font-family: "Noto Serif Balinese", serif;
+      font-size: 28px;
+    }
   `,
 };
 
