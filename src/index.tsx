@@ -1,8 +1,9 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import "./index.css";
+import Auth0ProviderWithNavigation from "./hooks-providers/auth0-provider";
+import reportWebVitals from "./hooks-providers/reportWebVitals";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import "./index.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -10,7 +11,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <BrowserRouter>
-    <App />
+    <Auth0ProviderWithNavigation>
+      <App />
+    </Auth0ProviderWithNavigation>
   </BrowserRouter>
 );
 
