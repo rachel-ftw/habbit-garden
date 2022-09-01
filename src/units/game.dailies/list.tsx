@@ -24,7 +24,13 @@ const DailiesList = ({ dailies, updateChecked }: any) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <input id={id} type="checkbox" name={name} checked={checked} />
+          <input
+            id={id}
+            type="checkbox"
+            name={name}
+            checked={checked}
+            onChange={() => {}}
+          />
           <label htmlFor={id}>{name}</label>
           <button>edit</button>
         </div>
