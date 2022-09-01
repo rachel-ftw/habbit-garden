@@ -10,7 +10,6 @@ const useGrid = () => {
   const [col, setCol] = useState(determineCenter(MAX_COLUMN));
 
   const handleClick = (row: any, col: any) => () => {
-    console.log("clicking Tile", { row, col });
     setRow(row);
     setCol(col);
   };

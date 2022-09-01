@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import styles from "./dailies.styles";
+
+import styles from "./styles";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import DailiesList from "./list";
 

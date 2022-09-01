@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
+
 import { useState } from "react";
 import Button from "../../components/button";
 import TextInput from "../../components/input.text";
-import styles from "./dailies.styles";
+import styles from "./styles";
 
 const addButton = { gridArea: "add-button", maxHeight: "45px" };
 

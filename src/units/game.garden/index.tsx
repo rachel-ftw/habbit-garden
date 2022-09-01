@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+
 import Scene from "./scene";
 import styles from "./styles";
 

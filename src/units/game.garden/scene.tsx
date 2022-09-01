@@ -1,11 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
 import { MAX_COLUMN, MAX_ROW } from "../../utils/constants";
+import { createSlots } from "../../utils/grid-helpers";
 import { Grid, Row, Tile } from "./grounds";
 import { sceneStyles as styles } from "./styles";
 import useGrid from "./use-grid";
-
-const createSlots = (num: number) => Array(num).fill("r");
 
 const Scene = () => {
   const { row, col, handleClick } = useGrid();

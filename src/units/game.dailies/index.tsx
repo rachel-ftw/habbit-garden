@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
+
 import useDailies from "./use-dailies";
-import styles from "./dailies.styles";
+import styles from "./styles";
 import AddDaily from "./add-daily";
 import DailiesContainer from "./container";
 
