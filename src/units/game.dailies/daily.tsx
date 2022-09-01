@@ -2,7 +2,6 @@
 
 import { css } from "@emotion/react";
 import colors from "../../utils/colors";
-import { IDaily } from "./use-dailies";
 
 const styles = (checked?: boolean) => ({
   container: css`
@@ -25,14 +24,16 @@ const styles = (checked?: boolean) => ({
   `,
 });
 
-interface IProps extends IDaily {
+interface IProps {
   provided: any;
   updateChecked: any;
-  id: string;
+  name: string;
+  checked: boolean;
+  index: number;
 }
 
 const Daily = (props: IProps) => {
-  const { provided, checked, id, index, name, updateChecked } = props;
+  const { provided, checked, index, name, updateChecked } = props;
 
   const style = styles(checked);
 

@@ -11,7 +11,6 @@ const DailiesList = ({ dailies, updateChecked }: any) => {
           checked={checked}
           updateChecked={updateChecked}
           name={name}
-          id={name}
           index={index}
         />
       )}
