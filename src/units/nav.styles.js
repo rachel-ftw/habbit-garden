@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import colors from "../colors";
+import colors from "../utils/colors";
 
 const styles = {
   container: css`
@@ -12,6 +12,8 @@ const styles = {
     > a {
       font-family: "Noto Serif Balinese", serif;
       font-size: 28px;
+      color: ${colors.black};
+      cursor: pointer;
     }
   `,
 

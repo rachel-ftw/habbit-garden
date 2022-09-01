@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import useDailies from "./use-dailies";
 import styles from "./dailies.styles";
-import AddDaily from "./dailies.add-daily";
-import DailiesContainer from "./dailies.container";
+import AddDaily from "./add-daily";
+import DailiesContainer from "./container";
 
 const Dailies = () => {
   const { dailies, update, error } = useDailies();

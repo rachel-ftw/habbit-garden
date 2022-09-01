@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from "@emotion/react";
-import colors from "../colors";
+import colors from "../utils/colors";
 
 interface IButtonProps {
   type?: "button" | "submit" | "reset" | undefined;

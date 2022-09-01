@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import styles from "./dailies.styles";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import DailiesList from "./dailies.list";
+import DailiesList from "./list";
 
 const Dailies = ({ dailies, update }: any) => {
   const onDragEnd = (result: any) => {

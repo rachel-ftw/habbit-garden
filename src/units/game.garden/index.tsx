@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import styles from "./garden.styles";
+import styles from "./styles";
 
 const Garden = () => (
   <div css={styles.container}>

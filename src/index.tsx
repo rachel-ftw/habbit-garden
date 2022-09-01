@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import Auth0ProviderWithNavigation from "./hooks-providers/auth0-provider";
-import reportWebVitals from "./hooks-providers/reportWebVitals";
+import reportWebVitals from "./utils/reportWebVitals";
 import App from "./App";
 import "./index.css";
 

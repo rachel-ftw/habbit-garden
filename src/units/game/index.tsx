@@ -1,5 +1,5 @@
-import Dailies from "./dailies";
-import Garden from "./garden";
+import Dailies from "../game.dailies";
+import Garden from "../game.garden";
 
 const Game = () => (
   <>

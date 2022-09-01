@@ -1,12 +1,16 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Draggable } from "react-beautiful-dnd";
+import colors from "../../utils/colors";
 import { IDaily } from "./use-dailies";
 
 const style = (checked: boolean) => css`
-  border: 1px solid grey;
+  border: 1px solid ${colors.grey};
   margin-bottom: 8px;
-  background-color: ${checked ? "lightblue" : "white"};
+  background-color: ${checked ? colors.grey : colors.white};
+  border-radius: 3px;
+  display: flex;
+  justify-content: ;
 `;
 
 const DailiesList = ({ dailies, updateChecked }: any) => {
@@ -22,6 +26,7 @@ const DailiesList = ({ dailies, updateChecked }: any) => {
         >
           <input id={id} type="checkbox" name={name} checked={checked} />
           <label htmlFor={id}>{name}</label>
+          <button>edit</button>
         </div>
       )}
     </Draggable>

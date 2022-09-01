@@ -9,7 +9,7 @@ const Nav = () => {
 
   return (
     <div css={styles.container}>
-      <Link to="/">Habit Garden</Link>
+      <Link to="/">🍄🌿 Habit Garden</Link>
       <div>
         {user && (
           <Link css={styles.link} to="/account">

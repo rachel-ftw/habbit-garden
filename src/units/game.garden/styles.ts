@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import colors from "../../colors";
+import colors from "../../utils/colors";
 
 const styles = {
   container: css`
