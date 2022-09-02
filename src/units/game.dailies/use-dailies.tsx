@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { defaultDailies, generateDaily } from "../../utils/daily-mocks";
+import { defaultDailies, appendDaily } from "../../utils/daily-mocks";
 
 export interface IDaily {
   id: string;
@@ -36,7 +36,7 @@ const reorder = (
 };
 
 const useDailies = (): IReturn => {
-  const [dailies, setDailies] = useState<IDailies>(defaultDailies);
+  const [dailies, setDailies] = useState<IDailies>(defaultDailies(50));
   const [error, setError] = useState<string>("");
 
   const updateChecked = (index: number) => () => {
@@ -55,7 +55,7 @@ const useDailies = (): IReturn => {
     }
 
     clearError();
-    setDailies([...dailies, generateDaily(event, dailies)]);
+    setDailies([...dailies, appendDaily(event, dailies)]);
   };
 
   const updateOrder = (sourceIndex: any, destinationIndex: any) => {
