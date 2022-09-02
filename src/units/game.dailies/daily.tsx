@@ -14,6 +14,7 @@ const styles = (checked?: boolean) => ({
   `,
   button: css`
     background: white;
+    padding: 3px;
     cursor: pointer;
 
     &:disabled {
@@ -27,13 +28,14 @@ const styles = (checked?: boolean) => ({
 interface IProps {
   provided: any;
   updateChecked: any;
+  updateText: any;
   name: string;
   checked: boolean;
   index: number;
 }
 
 const Daily = (props: IProps) => {
-  const { provided, checked, index, name, updateChecked } = props;
+  const { provided, checked, name, updateChecked, updateText } = props;
 
   const style = styles(checked);
 
@@ -41,12 +43,16 @@ const Daily = (props: IProps) => {
     <div
       css={style.container}
       ref={provided.innerRef}
-      onClick={updateChecked(index)}
+      onClick={updateChecked}
       {...provided.draggableProps}
       {...provided.dragHandleProps}
     >
       <span>{name}</span>
-      <button disabled={checked} css={style.button}>
+      <button
+        disabled={checked}
+        css={style.button}
+        onClick={(e) => updateText(e, "hi there")}
+      >
         edit
       </button>
     </div>

@@ -14,6 +14,7 @@ interface updates {
   add: any;
   checked: any;
   order: any;
+  text: any;
   clearError: any;
 }
 
@@ -45,6 +46,16 @@ const useDailies = (): IReturn => {
     setDailies(newDailies);
   };
 
+  const updateText = (index: number) => (e: any, text?: string) => {
+    e.stopPropagation();
+
+    if (text !== undefined) {
+      const newDailies = [...dailies];
+      newDailies[index].name = text;
+      setDailies(newDailies);
+    }
+  };
+
   const clearError = () => setError("");
 
   const add = (event: any) => {
@@ -68,6 +79,7 @@ const useDailies = (): IReturn => {
     update: {
       add,
       checked: updateChecked,
+      text: updateText,
       order: updateOrder,
       clearError,
     },
