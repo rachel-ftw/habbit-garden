@@ -6,7 +6,6 @@ Features:
 
 - serverless architecture
 - graphql
-- unity
 
 ## Available Scripts
 
