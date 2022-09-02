@@ -4,12 +4,25 @@ import useDailies from "./use-dailies";
 import styles from "./styles";
 import AddDaily from "./add-daily";
 import DailiesContainer from "./container";
+import {
+  isComputer,
+  useScreenDimensions,
+} from "../../hooks-providers/dimensions-provider";
+import { ViewTypes } from "../game";
 
-const Dailies = () => {
+interface IProps {
+  view: ViewTypes;
+}
+
+const Dailies = ({ view }: IProps) => {
   const { dailies, update, error } = useDailies();
+  const { viewType } = useScreenDimensions();
+  const onSmallView = !isComputer(viewType);
+
+  if (view !== ViewTypes.Dailies && onSmallView) return null;
 
   return (
-    <div css={styles.container}>
+    <div css={styles.container(onSmallView)}>
       <AddDaily
         addDaily={update.add}
         clearError={update.clearError}

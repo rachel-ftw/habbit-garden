@@ -3,8 +3,9 @@ import colors from "../../utils/colors";
 import { MAX_COLUMN, TILE_SIZE } from "../../utils/constants";
 
 const styles = {
-  container: css`
+  container: (onSmallView: boolean) => css`
     grid-area: garden;
+    ${onSmallView ? "grid-column: 1/-1;" : ""}
     background-color: ${colors.greenSageDark};
     height: 100%;
     border-radius: 3px;

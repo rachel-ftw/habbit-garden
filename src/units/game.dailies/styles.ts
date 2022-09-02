@@ -1,9 +1,10 @@
 import { css } from "@emotion/react";
 
 const styles = {
-  container: css`
+  container: (onSmallView: boolean) => css`
     padding: 10px;
     grid-area: dailies;
+    ${onSmallView ? "grid-column: 1/-1;" : ""}
   `,
   listLayout: css`
     display: flex;
