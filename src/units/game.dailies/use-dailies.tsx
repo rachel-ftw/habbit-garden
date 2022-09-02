@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { defaultDailies, appendDaily } from "../../utils/daily-mocks";
+import { defaultDailies, prependDaily } from "../../utils/daily-mocks";
 
 export interface IDaily {
   id: string;
@@ -55,7 +55,7 @@ const useDailies = (): IReturn => {
     }
 
     clearError();
-    setDailies([...dailies, appendDaily(event, dailies)]);
+    setDailies([prependDaily(event), ...dailies]);
   };
 
   const updateOrder = (sourceIndex: any, destinationIndex: any) => {
