@@ -5,6 +5,8 @@ const styles = {
     padding: 10px;
     grid-area: dailies;
     ${onSmallView ? "grid-column: 1/-1;" : ""}
+    height: 100%;
+    overflow: scroll;
   `,
   listLayout: css`
     display: flex;

@@ -1,7 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
 import { Routes, Route } from "react-router-dom";
-import { ScreenDimensionsContext } from "./hooks-providers/dimensions-provider";
+import {
+  isComputer,
+  ScreenDimensionsContext,
+} from "./hooks-providers/dimensions-provider";
 import useDimensions from "./hooks-providers/use-dimensions";
 import useRedirectIfNotLoggedIn from "./hooks-providers/use-redirect-to-home";
 import styles from "./styles";
@@ -17,7 +20,7 @@ const App = () => {
 
   return (
     <ScreenDimensionsContext.Provider value={dims}>
-      <div css={styles.layout}>
+      <div css={styles.layout(isComputer(dims.viewType))}>
         <Nav />
         <Routes>
           <Route path="/" element={<Landing />} />

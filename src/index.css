@@ -21,6 +21,10 @@ body {
   background-color: #efe8e0;
 }
 
+#root {
+  height: 100vh;
+}
+
 a {
   text-decoration: none;
 }
