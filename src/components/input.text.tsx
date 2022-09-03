@@ -2,6 +2,7 @@
 
 import { css } from "@emotion/react";
 import colors from "../utils/colors";
+import { textInputInvalid } from "../utils/text-input-invalid";
 import TextError from "./error.text";
 
 const style = css`
@@ -11,10 +12,18 @@ const style = css`
   border-radius: 3px;
 `;
 
-const TextInput = ({ error, text, id }: any) => (
+interface IProps {
+  error?: string;
+  labelText?: string;
+  id: string;
+  onChange?: any;
+  value?: string;
+}
+
+const TextInput = ({ error, labelText, id, ...props }: IProps) => (
   <>
-    <label htmlFor={id}>{text}</label>:
-    <input css={style} type="input" id={id} />
+    {textInputInvalid(labelText) && <label htmlFor={id}>{labelText}</label>}
+    <input css={style} type="input" id={id} {...props} />
     <TextError msg={error} />
   </>
 );

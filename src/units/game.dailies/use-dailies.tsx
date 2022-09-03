@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { defaultDailies, prependDaily } from "../../utils/daily-mocks";
+import { textInputInvalid } from "../../utils/text-input-invalid";
 
 export interface IDaily {
   id: string;
@@ -48,19 +49,25 @@ const useDailies = (): IReturn => {
 
   const updateText = (index: number) => (e: any, text?: string) => {
     e.stopPropagation();
+    setError("");
 
-    if (text !== undefined) {
-      const newDailies = [...dailies];
-      newDailies[index].name = text;
-      setDailies(newDailies);
+    if (textInputInvalid(text)) {
+      setError("please enter a valid daily title");
+      return;
     }
+
+    const newDailies = [...dailies];
+    newDailies[index].name = text || "";
+    setDailies(newDailies);
   };
 
   const clearError = () => setError("");
 
   const add = (event: any) => {
     event.preventDefault();
-    if (event.target[0].value === "") {
+    const addText = event.target[0].value;
+
+    if (textInputInvalid(addText)) {
       setError("please enter a todo title.");
       return;
     }

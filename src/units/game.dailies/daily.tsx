@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from "@emotion/react";
+import { useState } from "react";
+import TextInput from "../../components/input.text";
 import colors from "../../utils/colors";
 
 const styles = (checked?: boolean) => ({
@@ -32,12 +34,27 @@ interface IProps {
   name: string;
   checked: boolean;
   index: number;
+  id: string;
 }
 
 const Daily = (props: IProps) => {
-  const { provided, checked, name, updateChecked, updateText } = props;
+  const { provided, checked, name, id, updateChecked, updateText } = props;
+  const [showInput, setShowInput] = useState<boolean>(false);
+  const [dailyName, setDailyName] = useState<string>(name);
 
   const style = styles(checked);
+
+  const edit = (e: any) => {
+    e.stopPropagation();
+    setShowInput(!showInput);
+    if (dailyName !== name) {
+      updateText(e, dailyName);
+    }
+  };
+
+  const setName = (e: any) => {
+    setDailyName(e.target.value);
+  };
 
   return (
     <div
@@ -47,12 +64,9 @@ const Daily = (props: IProps) => {
       {...provided.draggableProps}
       {...provided.dragHandleProps}
     >
-      <span>{name}</span>
-      <button
-        disabled={checked}
-        css={style.button}
-        onClick={(e) => updateText(e, "hi there")}
-      >
+      {!showInput && <span>{name}</span>}
+      {showInput && <TextInput id={id} value={name} onChange={setName} />}
+      <button disabled={checked} css={style.button} onClick={edit}>
         edit
       </button>
     </div>

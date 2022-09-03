@@ -7,12 +7,13 @@ const DailiesList = ({ dailies, update }: any) => {
     <Draggable key={id} draggableId={id} index={index}>
       {(provided) => (
         <Daily
-          provided={provided}
           checked={checked}
+          id={id}
+          index={index}
+          name={name}
+          provided={provided}
           updateChecked={update.checked(index)}
           updateText={update.text(index)}
-          name={name}
-          index={index}
         />
       )}
     </Draggable>
