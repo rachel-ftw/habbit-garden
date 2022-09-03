@@ -4,8 +4,8 @@ A cozy habit building game in javascript.
 
 Features:
 
-- serverless architecture
-- graphql
+- serverless architecture using graphql
+- typescript, react, emotion
 
 ## Available Scripts
 
