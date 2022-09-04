@@ -33,7 +33,7 @@ const AddDaily = ({ addDaily, clearError, error }: any) => {
       {showForm && (
         <form css={styles.addForm} onSubmit={add}>
           <p>create a new daily</p>
-          <TextInput error={error} value="title" id="add-daily-text" />
+          <TextInput error={error} id="add-daily-text" />
           <Button text="add" type="submit" />
           <Button text="cancel" onClick={clearForm} />
         </form>
