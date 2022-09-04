@@ -46,28 +46,26 @@ const Daily = (props: IProps) => {
 
   const edit = (e: any) => {
     e.stopPropagation();
+
     setShowInput(!showInput);
-    if (dailyName !== name) {
-      updateText(e, dailyName);
-    }
+    if (dailyName !== name) updateText(e, dailyName);
   };
 
-  const setName = (e: any) => {
-    setDailyName(e.target.value);
-  };
+  const setName = (e: any) => void setDailyName(e.target.value);
+  const update = (e: any) => void !showInput && updateChecked(e);
 
   return (
     <div
       css={style.container}
       ref={provided.innerRef}
-      onClick={updateChecked}
+      onClick={update}
       {...provided.draggableProps}
       {...provided.dragHandleProps}
     >
       {!showInput && <span>{name}</span>}
-      {showInput && <TextInput id={id} value={name} onChange={setName} />}
+      {showInput && <TextInput id={id} value={dailyName} onChange={setName} />}
       <button disabled={checked} css={style.button} onClick={edit}>
-        edit
+        {showInput ? "save" : "edit"}
       </button>
     </div>
   );
