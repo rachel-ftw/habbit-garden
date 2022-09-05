@@ -52,7 +52,9 @@ const Daily = (props: IProps) => {
   };
 
   const setName = (e: any) => void setDailyName(e.target.value);
-  const update = (e: any) => void !showInput && updateChecked(e);
+  const update = () => {
+    !showInput && updateChecked();
+  };
 
   return (
     <div

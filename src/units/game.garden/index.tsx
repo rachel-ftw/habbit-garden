@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
+import Button from "../../components/button";
 import {
   isComputer,
   useScreenDimensions,
@@ -20,6 +21,10 @@ const Garden = ({ view }: IProps) => {
 
   return (
     <div css={styles.container(onSmallView)}>
+      <nav>
+        <Button text="🍄 garden" />
+        <Button text="📚 library" />
+      </nav>
       <h1>garden 🍄</h1>
       <Scene />
     </div>

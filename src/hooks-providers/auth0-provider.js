@@ -8,7 +8,7 @@ const Auth0ProviderWithNavigation = ({ children }) => {
   const navigate = useNavigate();
 
   const onRedirectCallback = () => {
-    navigate("/");
+    navigate("/game");
   };
 
   return (

@@ -6,7 +6,7 @@ import {
   ScreenDimensionsContext,
 } from "./hooks-providers/dimensions-provider";
 import useDimensions from "./hooks-providers/use-dimensions";
-import useRedirectIfNotLoggedIn from "./hooks-providers/use-redirect-to-home";
+import useRedirectIfNotLoggedIn from "./hooks-providers/use-redirect-if-not-logged-in";
 import styles from "./styles";
 import Account from "./units/account";
 import Game from "./units/game";
@@ -14,9 +14,10 @@ import Landing from "./units/landing";
 import Nav from "./units/nav";
 
 const App = () => {
-  const redirect = useRedirectIfNotLoggedIn();
+  const redirectHomeIfNotLoggedIn = useRedirectIfNotLoggedIn();
   const dims = useDimensions();
-  redirect();
+
+  redirectHomeIfNotLoggedIn();
 
   return (
     <ScreenDimensionsContext.Provider value={dims}>
