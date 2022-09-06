@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 
 import { css } from "@emotion/react";
+import { useGameData } from "../../hooks-providers/provider.game-data";
 import colors from "../../utils/colors";
-import useBuyPlant from "../../hooks-providers/use-buy-plant";
 import plantImg from "./lil-plant.jpg";
 
 interface IProps {
@@ -10,6 +10,8 @@ interface IProps {
   image: string;
   cost: number;
   id: string;
+  type: string;
+  origin: string;
 }
 
 const style = css`
@@ -34,11 +36,12 @@ const style = css`
   }
 `;
 
-const Plant = ({ id, name, image, cost }: IProps) => {
-  const buyPlant = useBuyPlant();
+const Plant = (props: IProps) => {
+  const { id, name, cost, type, origin } = props;
+  const { actions } = useGameData();
 
   return (
-    <div css={style} onClick={buyPlant({ name, cost, id })}>
+    <div css={style} onClick={() => actions.modifyPlant(type, id, origin)}>
       <img src={plantImg} alt={`${name} plant`} />
       <p>{name}</p>
       <p>{cost} units</p>

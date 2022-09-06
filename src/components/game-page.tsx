@@ -6,12 +6,14 @@ import formatUnits from "../utils/format-units";
 import { css } from "@emotion/react";
 import { textInputInvalid } from "../utils/text-input-invalid";
 import { useGameData } from "../hooks-providers/provider.game-data";
+import colors from "../utils/colors";
 
 const styles = css`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid ${colors.softRose};
 `;
 
 const Page = ({ title, info, children }: any) => {

@@ -19,16 +19,29 @@ const InteractWithPlants = ({ title, info, dataSlice }: IProps) => {
   const data = prop(dataSlice, gameData);
   const plantKeys = keys(data);
 
-  const makePlants = (props: any) => <Plant key={props.id} {...props} />;
+  const makePlants = (type: any, plantData: any) => (
+    <Plant
+      key={`plant-${plantData.id}`}
+      type={type}
+      origin={title}
+      {...plantData}
+    />
+  );
 
   return (
     <Page title={title} info={info}>
-      {plantKeys.map((type: any, index: number) => (
-        <div css={rowContainer} key={`${dataSlice}-${type}-${index}`}>
-          <h3>{type}</h3>
-          <div css={row}>{prop(type, data).map(makePlants)}</div>
-        </div>
-      ))}
+      {plantKeys.map((type: any, index: number) => {
+        const plantData = prop(type, data);
+        if (keys(plantData).length === 0) return null;
+        return (
+          <div css={rowContainer} key={`${dataSlice}-${type}-${index}`}>
+            <h3>{type}</h3>
+            <div css={row}>
+              {keys(plantData).map((key) => makePlants(type, plantData[key]))}
+            </div>
+          </div>
+        );
+      })}
     </Page>
   );
 };

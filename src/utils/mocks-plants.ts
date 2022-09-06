@@ -38,19 +38,22 @@ enum PlantTypes {
   trees,
 }
 
-export const generatePlants = (type: PlantTypes) => {
-  const mocks = {
-    [PlantTypes.shrubs]: shrubs,
-    [PlantTypes.flowers]: flowers,
-    [PlantTypes.trees]: trees,
-  };
+const mocks = {
+  [PlantTypes.shrubs]: shrubs,
+  [PlantTypes.flowers]: flowers,
+  [PlantTypes.trees]: trees,
+};
 
+export const generatePlants = (type: PlantTypes) => {
   const availablePlants = mocks[type];
   const makeNum = () => getRandomInt(availablePlants.length) || 1;
 
   return Array(makeNum())
     .fill("r")
-    .map((_, index) => generatePlant(availablePlants[makeNum()]));
+    .reduce((memo, _, index) => {
+      const plant = generatePlant(availablePlants[makeNum()]);
+      return { ...memo, [plant.id]: plant };
+    }, {});
 };
 
 const plants = {
@@ -64,6 +67,11 @@ const plants = {
     tree: generatePlants(PlantTypes.trees),
     flower: generatePlants(PlantTypes.flowers),
     shrub: generatePlants(PlantTypes.shrubs),
+  },
+  garden: {
+    tree: {},
+    flower: {},
+    shrub: {},
   },
 };
 
