@@ -38,7 +38,7 @@ const Plant = ({ id, name, image, cost }: IProps) => {
   const buyPlant = useBuyPlant();
 
   return (
-    <div css={style} onClick={buyPlant({ name, id })}>
+    <div css={style} onClick={buyPlant({ name, cost, id })}>
       <img src={plantImg} alt={`${name} plant`} />
       <p>{name}</p>
       <p>{cost} units</p>
