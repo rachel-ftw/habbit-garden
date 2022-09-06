@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import getRandomInt from "./get-random-int";
 
 export const prependDaily = (e: any) => {
   return generateDaily(e?.target[0]?.value, 0);
@@ -28,8 +29,6 @@ const todos = [
   "draw a picture",
   "go hiking",
 ];
-
-const getRandomInt = (max: number) => Math.floor(Math.random() * max);
 
 export const defaultDailies = (num: number) => {
   return Array(num)
