@@ -58,6 +58,12 @@ export const sceneStyles = {
 };
 
 export const libraryStyles = {
+  titleContainer: css`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  `,
   rowContainer: css`
     background-color: ${colors.white};
     margin: 3px 0;

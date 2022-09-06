@@ -54,7 +54,7 @@ export const generatePlants = (type: PlantTypes) => {
 };
 
 const plants = {
-  units: 200,
+  units: 20000,
   available: {
     tree: generatePlants(PlantTypes.trees),
     flower: generatePlants(PlantTypes.flowers),
