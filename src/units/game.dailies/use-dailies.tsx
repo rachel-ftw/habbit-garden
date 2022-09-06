@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useGameData } from "../../hooks-providers/provider.game-data";
 import { defaultDailies, prependDaily } from "../../utils/mocks-dailies";
 import { textInputInvalid } from "../../utils/text-input-invalid";
 
@@ -38,12 +39,16 @@ const reorder = (
 };
 
 const useDailies = (): IReturn => {
+  const gameData = useGameData();
   const [dailies, setDailies] = useState<IDailies>(defaultDailies(50));
   const [error, setError] = useState<string>("");
 
   const updateChecked = (index: number) => () => {
     const newDailies = [...dailies];
+
+    gameData.actions.completeDaily(newDailies[index].checked);
     newDailies[index].checked = !dailies[index].checked;
+
     setDailies(newDailies);
   };
 
