@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import {
   isComputer,
   ScreenDimensionsContext,
-} from "./hooks-providers/dimensions-provider";
+} from "./hooks-providers/provider.dimensions";
 import useDimensions from "./hooks-providers/use-dimensions";
 import useRedirectIfNotLoggedIn from "./hooks-providers/use-redirect-if-not-logged-in";
 import styles from "./styles";

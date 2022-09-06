@@ -7,7 +7,7 @@ import DailiesContainer from "./container";
 import {
   isComputer,
   useScreenDimensions,
-} from "../../hooks-providers/dimensions-provider";
+} from "../../hooks-providers/provider.dimensions";
 import { ViewTypes } from "../game";
 
 interface IProps {

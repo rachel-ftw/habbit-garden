@@ -5,7 +5,7 @@ import Button from "../../components/button";
 import {
   isComputer,
   useScreenDimensions,
-} from "../../hooks-providers/dimensions-provider";
+} from "../../hooks-providers/provider.dimensions";
 import { ViewTypes } from "../game";
 import Library from "./library";
 import Garden from "./garden";

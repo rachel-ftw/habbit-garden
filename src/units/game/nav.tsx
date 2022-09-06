@@ -4,7 +4,7 @@ import Button from "../../components/button";
 import {
   useScreenDimensions,
   isComputer,
-} from "../../hooks-providers/dimensions-provider";
+} from "../../hooks-providers/provider.dimensions";
 import { ViewTypes } from "./index";
 import styles from "./styles";
 

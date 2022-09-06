@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Types } from "./dimensions-provider";
+import { Types } from "./provider.dimensions";
 import useWindowSize from "./use-window-size";
 
 const useDimensions = () => {
