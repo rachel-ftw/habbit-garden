@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { defaultDailies, prependDaily } from "../../utils/daily-mocks";
+import { defaultDailies, prependDaily } from "../../utils/mocks-dailies";
 import { textInputInvalid } from "../../utils/text-input-invalid";
 
 export interface IDaily {
