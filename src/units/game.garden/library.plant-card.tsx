@@ -3,6 +3,7 @@
 import { css } from "@emotion/react";
 import colors from "../../utils/colors";
 import useBuyPlant from "./use-buy-plant";
+import plantImg from "./lil-plant.jpg";
 
 interface IProps {
   name: string;
@@ -12,6 +13,9 @@ interface IProps {
 }
 
 const style = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid ${colors.black};
   border-radius: 3px;
   margin: 3px;
@@ -20,6 +24,14 @@ const style = css`
   &:hover {
     background-color: ${colors.grey};
   }
+
+  img {
+    width: 50px;
+  }
+
+  p:first-of-type {
+    font-weight: 600;
+  }
 `;
 
 const Plant = ({ id, name, image, cost }: IProps) => {
@@ -27,9 +39,9 @@ const Plant = ({ id, name, image, cost }: IProps) => {
 
   return (
     <div css={style} onClick={buyPlant({ name, id })}>
+      <img src={plantImg} alt={`${name} plant`} />
       <p>{name}</p>
       <p>{cost} units</p>
-      <img src={image} alt={`${name} plant`} />
     </div>
   );
 };
