@@ -57,4 +57,19 @@ export const sceneStyles = {
   `,
 };
 
+export const libraryStyles = {
+  rowContainer: css`
+    background-color: ${colors.white};
+    margin: 3px 0;
+    border-radius: 3px;
+    padding: 5px;
+  `,
+
+  row: css`
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0;
+  `,
+};
+
 export default styles;
