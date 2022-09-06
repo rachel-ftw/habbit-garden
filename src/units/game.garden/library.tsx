@@ -12,9 +12,7 @@ const Library = () => {
   const { available, units } = userGameData;
   const plantKeys = keys(available);
 
-  const makePlants = ({ id, name, image, cost }: any) => (
-    <Plant key={id} name={name} image={image} cost={cost} />
-  );
+  const makePlants = (props: any) => <Plant key={props.id} {...props} />;
 
   return (
     <>

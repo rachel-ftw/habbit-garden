@@ -2,11 +2,13 @@
 
 import { css } from "@emotion/react";
 import colors from "../../utils/colors";
+import useBuyPlant from "./use-buy-plant";
 
 interface IProps {
   name: string;
   image: string;
   cost: number;
+  id: string;
 }
 
 const style = css`
@@ -20,12 +22,16 @@ const style = css`
   }
 `;
 
-const Plant = ({ name, image, cost }: IProps) => (
-  <div css={style}>
-    <p>{name}</p>
-    <p>{cost} units</p>
-    <img src={image} alt={`${name} plant`} />
-  </div>
-);
+const Plant = ({ id, name, image, cost }: IProps) => {
+  const buyPlant = useBuyPlant();
+
+  return (
+    <div css={style} onClick={buyPlant({ name, id })}>
+      <p>{name}</p>
+      <p>{cost} units</p>
+      <img src={image} alt={`${name} plant`} />
+    </div>
+  );
+};
 
 export default Plant;
