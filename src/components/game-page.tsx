@@ -5,6 +5,7 @@ import Button from "./button";
 import formatUnits from "../utils/format-units";
 import { css } from "@emotion/react";
 import { textInputInvalid } from "../utils/text-input-invalid";
+import { useGameData } from "../hooks-providers/provider.game-data";
 
 const styles = css`
   display: flex;
@@ -14,8 +15,8 @@ const styles = css`
 `;
 
 const Page = ({ title, info, children }: any) => {
+  const { units } = useGameData();
   const [showInfo, setShowInfo] = useState<boolean>(false);
-  const units = 20000;
   const infoPresent = !textInputInvalid(info);
 
   return (

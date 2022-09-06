@@ -2,7 +2,7 @@
 
 import { css } from "@emotion/react";
 import colors from "../../utils/colors";
-import useBuyPlant from "./use-buy-plant";
+import useBuyPlant from "../../hooks-providers/use-buy-plant";
 import plantImg from "./lil-plant.jpg";
 
 interface IProps {

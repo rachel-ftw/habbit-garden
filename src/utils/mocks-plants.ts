@@ -60,6 +60,11 @@ const plants = {
     flower: generatePlants(PlantTypes.flowers),
     shrub: generatePlants(PlantTypes.shrubs),
   },
+  purchasable: {
+    tree: generatePlants(PlantTypes.trees),
+    flower: generatePlants(PlantTypes.flowers),
+    shrub: generatePlants(PlantTypes.shrubs),
+  },
 };
 
 export default plants;
