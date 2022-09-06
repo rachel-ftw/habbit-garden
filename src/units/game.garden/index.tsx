@@ -10,6 +10,7 @@ import { ViewTypes } from "../game";
 import Library from "./library";
 import Garden from "./garden";
 import styles from "./styles";
+import Store from "./store";
 
 interface IProps {
   view: ViewTypes;
@@ -18,6 +19,7 @@ interface IProps {
 enum GameView {
   Library,
   Garden,
+  Store,
 }
 
 const Game = ({ view }: IProps) => {
@@ -28,14 +30,18 @@ const Game = ({ view }: IProps) => {
   if (view !== ViewTypes.Garden && onSmallView) return null;
 
   const setView = (view: GameView) => () => setGameView(view);
+  const viewIs = (v: GameView) => gameView === v;
 
   return (
     <div css={styles.container(onSmallView)}>
       <nav>
         <Button text="🍄 garden" onClick={setView(GameView.Garden)} />
         <Button text="📚 library" onClick={setView(GameView.Library)} />
+        <Button text="💸 store" onClick={setView(GameView.Store)} />
       </nav>
-      {gameView === GameView.Garden ? <Garden /> : <Library />}
+      {viewIs(GameView.Garden) && <Garden />}
+      {viewIs(GameView.Library) && <Library />}
+      {viewIs(GameView.Store) && <Store />}
     </div>
   );
 };
