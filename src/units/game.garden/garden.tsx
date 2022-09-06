@@ -1,10 +1,10 @@
+import Page from "../../components/game-page";
 import Scene from "./scene";
 
 const Garden = () => (
-  <>
-    <h1>garden 🍄</h1>
+  <Page title="Garden">
     <Scene />
-  </>
+  </Page>
 );
 
 export default Garden;
