@@ -1,5 +1,6 @@
 import { Auth0Provider } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
+import checkIfInDev from "../utils/check-if-in-dev";
 
 const Auth0ProviderWithNavigation = ({ children }) => {
   const navigate = useNavigate();
@@ -7,11 +8,11 @@ const Auth0ProviderWithNavigation = ({ children }) => {
 
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
-  const env = process.env.REACT_APP_ENV;
+  const isDevEnv = checkIfInDev(process.env.NODE_ENV);
   const netlifyUrl = process.env.REACT_APP_NETLIFY_URL;
   const localHostUrl = "http://localhost:3000/";
 
-  const redirectUri = env === "development" ? localHostUrl : netlifyUrl;
+  const redirectUri = isDevEnv ? localHostUrl : netlifyUrl;
   console.log({ netlifyUrl, redirectUri, env });
 
   return (

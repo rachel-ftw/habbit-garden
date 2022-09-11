@@ -1,3 +1,7 @@
-REACT_APP_AUTH0_DOMAIN = 'dev-tg6y26to.us.auth0.com'
-REACT_APP_ENV = 'production'
-REACT_APP_NETLIFY_URL = 'https://elaborate-tarsier-fd8a8f.netlify.app'
+[build]
+  command = "npm run build"
+  functions = "functions"
+  REACT_APP_AUTH0_DOMAIN = "dev-tg6y26to.us.auth0.com"
+  REACT_APP_NETLIFY_URL = "https://elaborate-tarsier-fd8a8f.netlify.app"
+  NETLIFY_USE_YARN = true
+  REPOSITORY_URL = "https://github.com/rachel-ftw/habit-garden"
