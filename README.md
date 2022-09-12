@@ -2,6 +2,8 @@
 
 A cozy habit building game in javascript.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/87076d37-d957-411c-89c0-3b77ec00c3ba/deploy-status)](https://app.netlify.com/sites/elaborate-tarsier-fd8a8f/deploys)
+
 Features:
 
 - serverless architecture using graphql
