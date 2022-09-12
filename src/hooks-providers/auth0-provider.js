@@ -6,19 +6,18 @@ const Auth0ProviderWithNavigation = ({ children }) => {
   const navigate = useNavigate();
   const onRedirectCallback = () => navigate("/game");
 
-  const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-  const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+  const auth0Domain = process.env.REACT_APP_AUTH0_DOMAIN;
+  const auth0ClientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
   const isDevEnv = checkIfInDev(process.env.NODE_ENV);
-  const netlifyUrl = process.env.REACT_APP_NETLIFY_URL;
-  const localHostUrl = "http://localhost:3000/";
+  const netlifyHostUrl = process.env.REACT_APP_NETLIFY_URL;
+  const localHostUrl = "http://localhost:8888/";
 
-  const redirectUri = isDevEnv ? localHostUrl : netlifyUrl;
-  console.log({ netlifyUrl, redirectUri, env });
+  const redirectUri = isDevEnv ? localHostUrl : netlifyHostUrl;
 
   return (
     <Auth0Provider
-      domain={domain}
-      clientId={clientId}
+      domain={auth0Domain}
+      clientId={auth0ClientId}
       redirectUri={redirectUri}
       onRedirectCallback={onRedirectCallback}
     >
