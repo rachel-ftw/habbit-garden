@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGameData } from "../../hooks-providers/provider.game-data";
-import { defaultDailies, prependDaily } from "../../utils/mocks-dailies";
+import useFetch from "../../hooks-providers/use-fetch";
+import { prependDaily } from "../../utils/mocks-dailies";
 import { textInputInvalid } from "../../utils/text-input-invalid";
 
 export interface IDaily {
@@ -40,8 +41,18 @@ const reorder = (
 
 const useDailies = (): IReturn => {
   const gameData = useGameData();
-  const [dailies, setDailies] = useState<IDailies>(defaultDailies(50));
+  const { fetchData } = useFetch();
+  const [dailies, setDailies] = useState<any>();
   const [error, setError] = useState<string>("");
+
+  useEffect(() => {
+    const set = (d: any) => {
+      console.log(d);
+      setDailies(d);
+    };
+
+    fetchData("dailies", set);
+  }, []);
 
   const updateChecked = (index: number) => () => {
     const newDailies = [...dailies];

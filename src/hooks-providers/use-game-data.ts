@@ -1,14 +1,25 @@
 import { path, prop } from "ramda";
-import { useState } from "react";
-import userGameData from "../utils/mocks-plants";
+import { useEffect, useState } from "react";
+import useFetch from "./use-fetch";
 import { add, subtract } from "./use-game-data.helpers";
 
 const useGameData = () => {
+  const { fetchData } = useFetch();
   const [unitsTotal, setUnitsTotal] = useState<any>(0);
   const [purchasable, setPurchasable] = useState<any>({});
   const [available, setAvailable] = useState<any>({});
   const [garden, setGarden] = useState<any>({});
 
+  useEffect(() => {
+    const setData = (gameData: any) => {
+      setUnitsTotal(gameData?.units);
+      setPurchasable(gameData?.purchasable);
+      setAvailable(gameData?.available);
+      setGarden(gameData?.garden);
+    };
+
+    fetchData("plants", setData);
+  }, []);
 
   const determineSection = (origin: string) => {
     if (origin === "garden") return [garden, setGarden, {}, () => {}];
