@@ -4,10 +4,11 @@ import userGameData from "../utils/mocks-plants";
 import { add, subtract } from "./use-game-data.helpers";
 
 const useGameData = () => {
-  const [unitsTotal, setUnitsTotal] = useState<number>(userGameData.units);
-  const [purchasable, setPurchasable] = useState(userGameData.purchasable);
-  const [available, setAvailable] = useState(userGameData.available);
-  const [garden, setGarden] = useState([]);
+  const [unitsTotal, setUnitsTotal] = useState<any>(0);
+  const [purchasable, setPurchasable] = useState<any>({});
+  const [available, setAvailable] = useState<any>({});
+  const [garden, setGarden] = useState<any>({});
+
 
   const determineSection = (origin: string) => {
     if (origin === "garden") return [garden, setGarden, {}, () => {}];

@@ -8,7 +8,7 @@ import styles from "./styles";
 const addButton = { gridArea: "add-button", maxHeight: "45px" };
 
 const AddDaily = ({ addDaily, clearError, error }: any) => {
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState<any>(false);
 
   const toggleForm = () => {
     if (error.length > 0) clearError();

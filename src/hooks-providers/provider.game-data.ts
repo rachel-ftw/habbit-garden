@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 
 export type gameDataContext = {
-  units: number;
+  units: any;
   available: any;
   purchasable: any;
   garden: any;
