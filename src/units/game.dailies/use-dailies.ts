@@ -26,23 +26,13 @@ interface IReturn {
   error: string;
 }
 
-const reorder = (
-  list: IDailies,
-  startIndex: number,
-  endIndex: number
-): IDailies => {
-  const result = Array.from(list);
-  const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed);
-
-  return result;
-};
-
 const useDailies = (): IReturn => {
   const gameData = useGameData();
   const { fetchData } = useFetch();
   const [dailies, setDailies] = useState<any>();
   const [error, setError] = useState<string>("");
+
+  const manageData = (path: string) => fetchData(path, setDailies);
 
   useEffect(() => {
     const set = (d: any) => {
@@ -92,8 +82,9 @@ const useDailies = (): IReturn => {
   };
 
   const updateOrder = (sourceIndex: any, destinationIndex: any) => {
-    const reordered = reorder(dailies, sourceIndex, destinationIndex);
-    setDailies(reordered);
+    manageData(
+      `daily-reorder?source=${sourceIndex}&destination=${destinationIndex}`
+    );
   };
 
   return {

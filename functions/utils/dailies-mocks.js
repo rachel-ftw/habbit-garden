@@ -49,6 +49,54 @@ const dailies = {
 
     return newSet;
   },
+  reorder: (start, end) => {
+    const startIndex = parseInt(start);
+    const endIndex = parseInt(end);
+    console.log("💃💃💃💃", { startIndex, endIndex });
+    const item = dailies.data[startIndex];
+    const itemAtEnd = dailies.data[endIndex];
+
+    const updated = dailies.data.reduce((memo, daily, i) => {
+      if (i === startIndex) {
+        console.log("at start, continuing");
+        return [...memo];
+      }
+
+      const reindex = () => {
+        console.log({ endIndex, i });
+        if (endIndex > startIndex) return daily.index + 1;
+        if (endIndex < startIndex) return i + 1;
+      };
+
+      if (i === endIndex) {
+        console.log("at endIndex, adding", { ...item, index: i });
+        return [
+          ...memo,
+          { ...item, index: endIndex },
+          { ...daily, index: endIndex + 1 },
+        ];
+      }
+
+      if (i < endIndex) {
+        console.log("i less than end, adding: ", daily.name);
+        if (i > startIndex) {
+          return [...memo, { ...daily, index: daily.index - 1 }];
+        }
+        return [...memo, daily];
+      }
+
+      if (i > endIndex) {
+        console.log("past endIndex, adding");
+        return [...memo, { ...daily, index: reindex() }];
+      }
+      return memo;
+    }, []);
+
+    console.log(updated);
+
+    dailies.data = updated;
+    return updated;
+  },
 };
 
 module.exports = { dailies };
