@@ -88,7 +88,7 @@ const useDailies = (): IReturn => {
     }
 
     clearError();
-    fetchData(`add-daily?title=${addText}`, setDailies);
+    manageData(`daily-add?title=${addText}`);
   };
 
   const updateOrder = (sourceIndex: any, destinationIndex: any) => {

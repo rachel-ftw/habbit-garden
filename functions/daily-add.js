@@ -1,4 +1,4 @@
-const { dailies } = require("./dailies");
+const { dailies } = require("./utils/dailies-mocks");
 
 exports.handler = async ({ queryStringParameters }) => {
   const { title } = queryStringParameters;
