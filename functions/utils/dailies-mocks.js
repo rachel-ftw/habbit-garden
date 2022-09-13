@@ -1,9 +1,9 @@
 const { v4: uuidv4 } = require("uuid");
 const getRandomInt = require("./get-random-int");
 
-const prependDaily = (e) => generateDaily(e?.target[0]?.value, 0);
+const prependDaily = (data) => generateDaily(data, 0);
 
-const generateDaily = (name, index) => ({
+const generateDaily = (name, index = 0) => ({
   id: uuidv4(),
   name,
   checked: false,
@@ -36,8 +36,19 @@ const defaultDailies = (num = 5) => {
     });
 };
 
-module.exports = {
-  defaultDailies,
-  prependDaily,
-  generateDaily,
+const dailies = {
+  data: defaultDailies(),
+  add: (todoStr) => {
+    const newDaily = generateDaily(todoStr);
+    const newSet = [
+      newDaily,
+      ...dailies.data.map((daily) => ({ ...daily, index: daily.index + 1 })),
+    ];
+
+    dailies.data = newSet;
+
+    return newSet;
+  },
 };
+
+module.exports = { dailies };

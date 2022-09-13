@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGameData } from "../../hooks-providers/provider.game-data";
 import useFetch from "../../hooks-providers/use-fetch";
-import { prependDaily } from "../../utils/mocks-dailies";
 import { textInputInvalid } from "../../utils/text-input-invalid";
 
 export interface IDaily {
@@ -89,7 +88,7 @@ const useDailies = (): IReturn => {
     }
 
     clearError();
-    setDailies([prependDaily(event), ...dailies]);
+    fetchData(`add-daily?title=${addText}`, setDailies);
   };
 
   const updateOrder = (sourceIndex: any, destinationIndex: any) => {
