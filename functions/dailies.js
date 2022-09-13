@@ -1,4 +1,4 @@
-const { defaultDailies } = require("./dailies-mocks");
+const { defaultDailies } = require("./utils/dailies-mocks");
 
 exports.handler = async () => ({
   statusCode: 200,

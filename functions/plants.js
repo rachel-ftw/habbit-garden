@@ -1,4 +1,4 @@
-const { plants } = require("./plants-mocks");
+const { plants } = require("./utils/plants-mocks");
 
 exports.handler = async () => ({
   statusCode: 200,
