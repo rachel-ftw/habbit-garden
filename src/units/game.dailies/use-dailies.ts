@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useGameData } from "../../hooks-providers/provider.game-data";
 import useFetch from "../../hooks-providers/use-fetch";
+import { isInit } from "../../utils/status";
 import { textInputInvalid } from "../../utils/text-input-invalid";
 
 export interface IDaily {
@@ -28,20 +29,15 @@ interface IReturn {
 
 const useDailies = (): IReturn => {
   const gameData = useGameData();
-  const { fetchData } = useFetch();
+  const { fetchData, status } = useFetch();
   const [dailies, setDailies] = useState<any>();
   const [error, setError] = useState<string>("");
 
   const manageData = (path: string) => fetchData(path, setDailies);
 
-  useEffect(() => {
-    const set = (d: any) => {
-      console.log(d);
-      setDailies(d);
-    };
-
-    fetchData("dailies", set);
-  }, [fetchData]);
+  if (isInit(status)) {
+    fetchData("dailies", setDailies);
+  }
 
   const updateChecked = (index: number) => () => {
     const newDailies = [...dailies];

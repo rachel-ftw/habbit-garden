@@ -1,25 +1,26 @@
 import { path, prop } from "ramda";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { isInit } from "../utils/status";
 import useFetch from "./use-fetch";
 import { add, subtract } from "./use-game-data.helpers";
 
 const useGameData = () => {
-  const { fetchData } = useFetch();
+  const { fetchData, status } = useFetch();
   const [unitsTotal, setUnitsTotal] = useState<any>(0);
   const [purchasable, setPurchasable] = useState<any>({});
   const [available, setAvailable] = useState<any>({});
-  const [garden, setGarden] = useState<any>({});
+  const [garden, setGarden] = useState<any>(null);
 
-  useEffect(() => {
-    const setData = (gameData: any) => {
-      setUnitsTotal(gameData?.units);
-      setPurchasable(gameData?.purchasable);
-      setAvailable(gameData?.available);
-      setGarden(gameData?.garden);
-    };
+  const setData = (gameData: any) => {
+    setUnitsTotal(gameData?.units);
+    setPurchasable(gameData?.purchasable);
+    setAvailable(gameData?.available);
+    setGarden(gameData?.garden);
+  };
 
+  if (isInit(status)) {
     fetchData("plants", setData);
-  }, [fetchData]);
+  }
 
   const determineSection = (origin: string) => {
     if (origin === "garden") return [garden, setGarden, {}, () => {}];
