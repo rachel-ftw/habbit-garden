@@ -19,7 +19,7 @@ const useGameData = () => {
     };
 
     fetchData("plants", setData);
-  }, []);
+  }, [fetchData]);
 
   const determineSection = (origin: string) => {
     if (origin === "garden") return [garden, setGarden, {}, () => {}];

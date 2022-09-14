@@ -49,6 +49,12 @@ const dailies = {
 
     return newSet;
   },
+  edit: (newText, index) => {
+    const newSet = [...dailies.data];
+    newSet[index].name = newText;
+    dailies.data = newSet;
+    return newSet;
+  },
   reorder: (start, end) => {
     const startIndex = parseInt(start);
     const endIndex = parseInt(end);

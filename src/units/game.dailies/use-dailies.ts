@@ -41,7 +41,7 @@ const useDailies = (): IReturn => {
     };
 
     fetchData("dailies", set);
-  }, []);
+  }, [fetchData]);
 
   const updateChecked = (index: number) => () => {
     const newDailies = [...dailies];
