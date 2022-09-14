@@ -1,7 +1,18 @@
 {
-  "name": "habit-garden",
+  "name": "star-coyote",
   "version": "0.1.0",
   "private": true,
+  "author": "Rae Ralston",
+  "description": "a cozy habit and garden building game",
+  "homepage": "http://starcoyote.space",
+  "funding": {
+    "type": "individual",
+    "url": "https://www.buymeacoffee.com/raeralston"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rachel-ftw/star-coyote"
+  },
   "dependencies": {
     "@auth0/auth0-react": "^1.10.2",
     "@emotion/react": "^11.10.4",
