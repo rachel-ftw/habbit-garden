@@ -2,6 +2,7 @@
 
 import { css } from "@emotion/react";
 import { isNil, keys } from "ramda";
+import React from "react";
 import Page from "../../components/game-page";
 import { useGameData } from "../../hooks-providers/provider.game-data";
 import Scene from "./scene";
@@ -18,14 +19,14 @@ const BSShowingPlants = ({ garden }: any) => {
       {keys(garden).map((type: any) => {
         if (isNil(garden[type])) return null;
         return (
-          <>
+          <React.Fragment key={`bs-${type}`}>
             <h3>{type}</h3>
             <ul>
               {keys(garden[type]).map((id: any) => (
-                <li>{garden[type][id].name}</li>
+                <li key={`${garden[type]}-${id}`}>{garden[type][id].name}</li>
               ))}
             </ul>
-          </>
+          </React.Fragment>
         );
       })}
     </div>
