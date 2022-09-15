@@ -3,7 +3,7 @@ import { Draggable } from "react-beautiful-dnd";
 import Daily from "./daily";
 import { IDaily } from "./use-dailies";
 
-const DailiesList = ({ dailies, update }: any) => {
+const DailiesList = ({ dailies, editDaily }: any) => {
   if (isNil(dailies) || dailies.length === 0) return null;
 
   return dailies.map(({ checked, id, name }: IDaily, index: number) => (
@@ -15,8 +15,7 @@ const DailiesList = ({ dailies, update }: any) => {
           index={index}
           name={name}
           provided={provided}
-          updateChecked={update.checked(index)}
-          updateText={update.text(index)}
+          editDaily={editDaily(index)}
         />
       )}
     </Draggable>

@@ -29,8 +29,7 @@ const styles = (checked?: boolean) => ({
 
 interface IProps {
   provided: any;
-  updateChecked: any;
-  updateText: any;
+  editDaily: any;
   name: string;
   checked: boolean;
   index: number;
@@ -38,35 +37,35 @@ interface IProps {
 }
 
 const Daily = (props: IProps) => {
-  const { provided, checked, name, id, updateChecked, updateText } = props;
+  const { provided, checked, name, id, editDaily } = props;
   const [showInput, setShowInput] = useState<boolean>(false);
   const [dailyName, setDailyName] = useState<string>(name);
 
   const style = styles(checked);
+  const setName = (e: any) => void setDailyName(e.target.value);
 
-  const edit = (e: any) => {
+  const editText = (e: any) => {
     e.stopPropagation();
 
+    if (dailyName !== name && showInput) editDaily({ name: dailyName });
     setShowInput(!showInput);
-    if (dailyName !== name) updateText(e, dailyName);
   };
 
-  const setName = (e: any) => void setDailyName(e.target.value);
-  const update = () => {
-    !showInput && updateChecked();
+  const toggleChecked = (e: any) => {
+    !showInput && editDaily({ checked: !checked });
   };
 
   return (
     <div
       css={style.container}
       ref={provided.innerRef}
-      onClick={update}
+      onClick={toggleChecked}
       {...provided.draggableProps}
       {...provided.dragHandleProps}
     >
       {!showInput && <span>{name}</span>}
       {showInput && <TextInput id={id} value={dailyName} onChange={setName} />}
-      <button disabled={checked} css={style.button} onClick={edit}>
+      <button disabled={checked} css={style.button} onClick={editText}>
         {showInput ? "save" : "edit"}
       </button>
     </div>

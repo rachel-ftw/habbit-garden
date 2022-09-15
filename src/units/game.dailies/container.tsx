@@ -21,7 +21,7 @@ const Dailies = ({ dailies, update }: any) => {
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
-            {<DailiesList dailies={dailies} update={update} />}
+            {<DailiesList dailies={dailies} editDaily={update.edit} />}
             {provided.placeholder}
           </div>
         )}

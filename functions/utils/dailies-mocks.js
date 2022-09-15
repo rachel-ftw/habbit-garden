@@ -1,3 +1,4 @@
+const { keys } = require("ramda");
 const { v4: uuidv4 } = require("uuid");
 const getRandomInt = require("./get-random-int");
 
@@ -28,6 +29,12 @@ const todos = [
   "go hiking",
 ];
 
+const ifBoolCastType = (v) => {
+  if (v === "true") return true;
+  if (v === "false") return false;
+  return v;
+};
+
 const defaultDailies = (num = 5) => {
   return Array(num)
     .fill("r")
@@ -39,26 +46,29 @@ const defaultDailies = (num = 5) => {
 const dailies = {
   data: defaultDailies(),
   add: (todoStr) => {
-    const newDaily = generateDaily(todoStr);
     const newSet = [
-      newDaily,
+      generateDaily(todoStr),
       ...dailies.data.map((daily) => ({ ...daily, index: daily.index + 1 })),
     ];
 
     dailies.data = newSet;
-
     return newSet;
   },
-  edit: (newText, index) => {
+  edit: (props) => {
+    const { index, ...args } = props;
     const newSet = [...dailies.data];
-    newSet[index].name = newText;
+
+    keys(args).forEach((key) => {
+      newSet[index][key] = ifBoolCastType(args[key]);
+    });
+
     dailies.data = newSet;
     return newSet;
   },
   reorder: (start, end) => {
     const startIndex = parseInt(start);
     const endIndex = parseInt(end);
-    console.log("💃💃💃💃", { startIndex, endIndex });
+
     const item = dailies.data[startIndex];
     const itemAtEnd = dailies.data[endIndex];
 

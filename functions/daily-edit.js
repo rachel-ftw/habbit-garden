@@ -1,8 +1,7 @@
 const { dailies } = require("./utils/dailies-mocks");
 
 exports.handler = async ({ queryStringParameters }) => {
-  const { title } = queryStringParameters;
-  const newData = dailies.edit(title);
+  const newData = dailies.edit(queryStringParameters);
 
   return {
     statusCode: 200,

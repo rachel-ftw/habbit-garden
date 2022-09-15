@@ -21,8 +21,11 @@ const AddDaily = ({ addDaily, clearError, error }: any) => {
   };
 
   const add = (e: any) => {
-    if (e.target[0].value !== "") clearForm();
-    addDaily(e);
+    e.preventDefault();
+    const text = e.target[0].value;
+
+    if (text !== "") clearForm();
+    addDaily(text);
   };
 
   return (
