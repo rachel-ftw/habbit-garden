@@ -3,7 +3,7 @@
 import useDailies from "./use-dailies";
 import styles from "./styles";
 import AddDaily from "./add-daily";
-import DailiesContainer from "./container";
+import DailiesContainer from "./dailies";
 import {
   isComputer,
   useScreenDimensions,

@@ -18,7 +18,7 @@ interface updates {
   add: any;
   clearError: any;
   edit: any;
-  order: any;
+  reorder: any;
 }
 
 interface IReturn {
@@ -48,18 +48,13 @@ const useDailies = (): IReturn => {
     manageData(`daily-add${constructQuery({ title: text })}`);
   };
 
-  const updateOrder = (source: any, destination: any) => {
+  const reorder = (source: any, destination: any) => {
     manageData(`daily-reorder${constructQuery({ source, destination })}`);
   };
 
   return {
     dailies,
-    update: {
-      add,
-      edit,
-      order: updateOrder,
-      clearError,
-    },
+    update: { add, edit, reorder, clearError },
     error,
   };
 };
